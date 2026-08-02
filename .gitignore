@@ -1,0 +1,15 @@
+# Vercel
+.vercel
+
+# Ajustes locales de Claude Code (por máquina, no se comparten)
+.claude/settings.local.json
+
+# Sistema operativo
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editores
+.vscode/
+.idea/
+*.swp

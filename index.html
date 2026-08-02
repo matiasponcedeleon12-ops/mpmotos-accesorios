@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MPMOTOS — Cascos certificados para moto | Envío a todo el país</title>
+<meta name="description" content="Cascos de moto certificados DOT y ECE 22.06. Protección real, diseño minimalista y envío en 24/48 h. Garantía de 12 meses y cambio gratis por talle.">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230B0B0C'/><path d='M16 6c6 0 10 4.4 10 10v2.4c0 1.8-1 3-2.8 3.4l-4.4.9c-1.4.3-2.5-.2-3-1.3l-.6-1.3H8.6C7 20.1 6 19 6 17.4V16C6 10.4 10 6 16 6z' fill='%23FF4D17'/></svg>">
+
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --ink:#0B0B0C;
+  --graphite:#17181B;
+  --body:#43474E;
+  --muted:#797F88;
+  --line:#E6E8EB;
+  --soft:#F6F7F8;
+  --white:#FFFFFF;
+  --accent:#FF4D17;
+  --accent-ink:#D93B0C;
+  --ok:#0E9F6E;
+  --radius:14px;
+  --wrap:1160px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --shadow:0 1px 2px rgba(11,11,12,.05), 0 12px 32px -12px rgba(11,11,12,.14);
+}
+
+/* ============ RESET ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  color:var(--body);
+  background:var(--white);
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+h1,h2,h3,h4{color:var(--ink);line-height:1.12;letter-spacing:-.025em;margin:0;font-weight:700}
+h1{font-size:clamp(2.3rem,5.4vw,4rem)}
+h2{font-size:clamp(1.85rem,3.6vw,2.75rem)}
+h3{font-size:1.12rem;letter-spacing:-.01em}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+ul{margin:0;padding:0;list-style:none}
+button{font:inherit;cursor:pointer}
+
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:24px}
+.section{padding:clamp(64px,9vw,116px) 0}
+.center{text-align:center}
+.lead{font-size:clamp(1.02rem,1.6vw,1.18rem);color:var(--muted);max-width:56ch}
+.center .lead{margin-inline:auto}
+
+/* Etiqueta de sección */
+.eyebrow{
+  display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:14px;
+}
+.head{margin-bottom:clamp(36px,5vw,58px)}
+.head h2 + .lead{margin-top:16px}
+
+/* ============ BOTONES ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:15px 28px;border-radius:10px;border:1px solid transparent;
+  font-weight:650;font-size:.98rem;letter-spacing:-.01em;line-height:1;
+  transition:transform .18s var(--ease), background .18s var(--ease), box-shadow .18s var(--ease), border-color .18s var(--ease);
+  white-space:nowrap;
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 24px -10px rgba(255,77,23,.85)}
+.btn-primary:hover{background:var(--accent-ink);box-shadow:0 14px 28px -10px rgba(255,77,23,.7)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ink);background:var(--soft)}
+.btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
+.btn-ghost-light:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.btn-block{width:100%}
+.btn-sm{padding:11px 18px;font-size:.88rem}
+
+/* ============ HEADER ============ */
+.hdr{
+  position:sticky;top:0;z-index:60;background:rgba(255,255,255,.88);
+  backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:70px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.04em;font-size:1.16rem;color:var(--ink)}
+.logo .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:grid;place-items:center;flex:none}
+.logo .mark svg{width:19px;height:19px}
+.logo span b{color:var(--accent)}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{font-size:.94rem;color:var(--body);font-weight:500;transition:color .15s}
+.nav a:hover{color:var(--ink)}
+@media (max-width:900px){.nav{display:none}}
+.hdr .btn{padding:11px 20px;font-size:.9rem}
+@media (max-width:520px){.hdr .btn span{display:none}}
+
+/* ============ HERO ============ */
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(760px 460px at 78% 32%, rgba(255,77,23,.20), transparent 62%),
+    radial-gradient(600px 420px at 12% 88%, rgba(255,255,255,.06), transparent 60%);
+  pointer-events:none;
+}
+.hero-in{
+  position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;
+  padding:clamp(60px,8vw,104px) 0 clamp(56px,7vw,96px);
+}
+.hero h1{color:#fff}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{color:rgba(255,255,255,.66);margin-top:22px;font-size:1.1rem}
+.pill{
+  display:inline-flex;align-items:center;gap:9px;padding:7px 14px 7px 9px;border-radius:999px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+  font-size:.8rem;font-weight:550;color:rgba(255,255,255,.86);margin-bottom:26px;letter-spacing:-.005em;
+}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(14,159,110,.22)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero-note{margin-top:18px;font-size:.85rem;color:rgba(255,255,255,.44)}
+
+.hero-art{position:relative;display:grid;place-items:center;min-height:340px}
+.hero-art .glow{
+  position:absolute;width:78%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle, rgba(255,77,23,.30), transparent 66%);filter:blur(28px);
+}
+.hero-art .helmet{position:relative;width:min(100%,430px);filter:drop-shadow(0 34px 46px rgba(0,0,0,.6))}
+.spec{
+  position:absolute;display:flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.94);color:var(--ink);border-radius:10px;
+  padding:9px 13px;font-size:.78rem;font-weight:650;letter-spacing:-.01em;
+  box-shadow:0 14px 30px -12px rgba(0,0,0,.6);white-space:nowrap;
+}
+.spec svg{width:14px;height:14px;color:var(--accent);flex:none}
+.spec.s1{top:8%;left:-2%}
+.spec.s2{bottom:14%;right:-2%}
+@media (max-width:960px){
+  .hero-in{grid-template-columns:1fr;gap:40px;text-align:center}
+  .hero .lead{margin-inline:auto}
+  .hero-cta{justify-content:center}
+  .hero-art{order:-1;min-height:0}
+  .spec.s1{left:0}.spec.s2{right:0}
+}
+
+/* ============ TIRA DE CONFIANZA ============ */
+.trust{background:var(--graphite);border-top:1px solid rgba(255,255,255,.08)}
+.trust ul{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2px;
+}
+.trust li{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:20px 14px;color:rgba(255,255,255,.7);font-size:.86rem;font-weight:550;text-align:left;
+}
+.trust svg{width:17px;height:17px;color:var(--accent);flex:none}
+@media (max-width:820px){.trust ul{grid-template-columns:repeat(2,1fr)}}
+
+/* ============ PRODUCTOS ============ */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+@media (max-width:980px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.grid-3{grid-template-columns:1fr}}
+
+.card{
+  border:1px solid var(--line);border-radius:var(--radius);background:#fff;
+  display:flex;flex-direction:column;overflow:hidden;
+  transition:transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#D6D9DD}
+.card-media{
+  position:relative;background:var(--soft);padding:34px 24px;display:grid;place-items:center;
+  border-bottom:1px solid var(--line);
+}
+.card-media svg{width:190px;height:auto;transition:transform .35s var(--ease)}
+.card:hover .card-media svg{transform:scale(1.05)}
+.tag{
+  position:absolute;top:14px;left:14px;background:var(--ink);color:#fff;
+  font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:6px 10px;border-radius:6px;
+}
+.tag.hot{background:var(--accent)}
+.card-body{padding:24px;display:flex;flex-direction:column;gap:14px;flex:1}
+.card-body .use{font-size:.73rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.feat{display:flex;flex-direction:column;gap:8px;font-size:.9rem;color:var(--body)}
+.feat li{display:flex;gap:9px;align-items:flex-start}
+.feat svg{width:15px;height:15px;color:var(--ok);flex:none;margin-top:4px}
+.price{display:flex;align-items:baseline;gap:10px;margin-top:auto;padding-top:6px}
+.price .now{font-size:1.65rem;font-weight:750;color:var(--ink);letter-spacing:-.03em}
+.price .was{font-size:.95rem;color:var(--muted);text-decoration:line-through}
+.price .off{font-size:.72rem;font-weight:700;color:var(--accent);background:rgba(255,77,23,.1);padding:4px 8px;border-radius:6px}
+.installments{font-size:.82rem;color:var(--muted);margin-top:-8px}
+
+/* ============ POR QUÉ / SEGURIDAD ============ */
+.why{background:var(--soft)}
+.why-in{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(40px,6vw,80px);align-items:center}
+@media (max-width:940px){.why-in{grid-template-columns:1fr}}
+.why-art{background:var(--ink);border-radius:var(--radius);padding:48px 32px;display:grid;place-items:center;position:relative;overflow:hidden}
+.why-art::after{content:"";position:absolute;inset:0;background:radial-gradient(420px 320px at 50% 40%, rgba(255,77,23,.22), transparent 65%)}
+.why-art svg{width:min(100%,300px);position:relative;z-index:1;filter:drop-shadow(0 24px 34px rgba(0,0,0,.5))}
+.why-list{display:flex;flex-direction:column;gap:28px;margin-top:34px}
+.why-item{display:flex;gap:18px}
+.why-item .ico{
+  width:42px;height:42px;border-radius:11px;background:var(--ink);color:#fff;
+  display:grid;place-items:center;flex:none;
+}
+.why-item .ico svg{width:19px;height:19px}
+.why-item h3{margin-bottom:5px}
+.why-item p{font-size:.94rem;color:var(--muted)}
+
+/* ============ PASOS ============ */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;counter-reset:s}
+@media (max-width:820px){.steps{grid-template-columns:1fr;gap:26px}}
+.step{padding:0 26px;border-left:2px solid var(--line);position:relative}
+.step:first-child{border-left:0;padding-left:0}
+@media (max-width:820px){.step{border-left:0;padding-left:0}}
+.step .n{
+  font-size:.74rem;font-weight:750;letter-spacing:.14em;color:var(--accent);
+  display:block;margin-bottom:12px;
+}
+.step h3{margin-bottom:8px}
+.step p{font-size:.94rem;color:var(--muted)}
+
+/* ============ TESTIMONIOS ============ */
+.quote{
+  border:1px solid var(--line);border-radius:var(--radius);padding:28px;background:#fff;
+  display:flex;flex-direction:column;gap:16px;
+}
+.stars{display:flex;gap:3px;color:var(--accent)}
+.stars svg{width:15px;height:15px}
+.quote p{font-size:.98rem;color:var(--ink);letter-spacing:-.01em;line-height:1.6}
+.who{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:4px}
+.avatar{
+  width:38px;height:38px;border-radius:50%;background:var(--ink);color:#fff;
+  display:grid;place-items:center;font-size:.82rem;font-weight:700;flex:none;letter-spacing:-.02em;
+}
+.who b{display:block;color:var(--ink);font-size:.9rem;font-weight:650;line-height:1.3}
+.who small{color:var(--muted);font-size:.8rem}
+
+/* ============ GARANTÍA ============ */
+.guarantee{
+  border:1px solid var(--line);border-radius:var(--radius);background:#fff;
+  padding:clamp(30px,4vw,48px);display:flex;gap:28px;align-items:center;box-shadow:var(--shadow);
+}
+@media (max-width:760px){.guarantee{flex-direction:column;text-align:center}}
+.seal{
+  width:88px;height:88px;flex:none;border-radius:50%;background:var(--ink);color:#fff;
+  display:grid;place-items:center;
+}
+.seal svg{width:38px;height:38px;color:var(--accent)}
+.guarantee h3{font-size:1.35rem;margin-bottom:8px}
+.guarantee p{color:var(--muted);font-size:.97rem}
+
+/* ============ FAQ ============ */
+.faq{max-width:800px;margin-inline:auto}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-of-type{border-top:1px solid var(--line)}
+.faq summary{
+  list-style:none;cursor:pointer;padding:22px 40px 22px 0;position:relative;
+  font-weight:650;color:var(--ink);font-size:1.02rem;letter-spacing:-.015em;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"";position:absolute;right:6px;top:50%;width:11px;height:11px;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:translateY(-70%) rotate(45deg);transition:transform .22s var(--ease);
+}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq .ans{padding:0 40px 24px 0;color:var(--muted);font-size:.96rem;margin-top:-4px}
+
+/* ============ CTA FINAL ============ */
+.final{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.final::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(700px 380px at 50% 0%, rgba(255,77,23,.24), transparent 62%);
+}
+.final .wrap{position:relative}
+.final h2{color:#fff}
+.final .lead{color:rgba(255,255,255,.6);margin-top:16px}
+.final-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:34px}
+.final-micro{margin-top:22px;font-size:.84rem;color:rgba(255,255,255,.42)}
+
+/* ============ FOOTER ============ */
+.ftr{background:var(--graphite);color:rgba(255,255,255,.55);font-size:.9rem;padding:52px 0 40px}
+.ftr-in{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+@media (max-width:760px){.ftr-in{grid-template-columns:1fr;gap:30px}}
+.ftr .logo{color:#fff;margin-bottom:14px}
+.ftr .logo .mark{background:#fff}
+.ftr .logo .mark svg{color:var(--ink)}
+.ftr h4{color:#fff;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;font-weight:700}
+.ftr li{margin-bottom:9px}
+.ftr a:hover{color:#fff}
+.ftr-btm{
+  margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.82rem;color:rgba(255,255,255,.38);
+}
+
+/* ============ BARRA FIJA MÓVIL ============ */
+.sticky-buy{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
+  padding:11px 16px calc(11px + env(safe-area-inset-bottom));
+  background:rgba(255,255,255,.95);backdrop-filter:blur(12px);
+  border-top:1px solid var(--line);
+  gap:12px;align-items:center;
+}
+.sticky-buy .txt{flex:1;min-width:0;line-height:1.25}
+.sticky-buy .txt b{display:block;color:var(--ink);font-size:.92rem;font-weight:700}
+.sticky-buy .txt small{color:var(--muted);font-size:.76rem}
+@media (max-width:768px){.sticky-buy{display:flex}body{padding-bottom:78px}}
+
+/* ============ ANIMACIÓN DE ENTRADA ============ */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease), transform .6s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+}
+</style>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+
+<!-- ===== ICONOS REUTILIZABLES ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Silueta de casco integral -->
+    <symbol id="i-helmet" viewBox="0 0 200 176">
+      <path d="M100 14c48 0 78 35 78 80v20c0 15-9 26-23 29l-33 7c-11 2-20-2-24-11l-5-11H46c-14 0-24-10-24-24v-10C22 49 52 14 100 14z"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M4 12.5l5.2 5L20 6.5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 2.8l7.6 3v6.1c0 4.6-3 8.2-7.6 9.3-4.6-1.1-7.6-4.7-7.6-9.3V5.8z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.6 11.9l2.4 2.4 4.4-4.6"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M2 6.5h11v10H2zM13 9.5h4.4l3.6 3.4v3.6h-8z"/><circle cx="6.8" cy="18" r="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="18" r="2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 8h13l-3.6-3.6M21 16H8l3.6 3.6"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" d="M2.5 10h19"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M21 12.2c0 4.2-4 7.6-9 7.6-1.1 0-2.2-.2-3.2-.5L3 21l1.8-4.1C3.6 15.6 3 14 3 12.2 3 8 7 4.6 12 4.6s9 3.4 9 7.6z"/></symbol>
+    <symbol id="i-feather" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20.2 3.8c-6 0-11.2 2.4-13.4 7.6-1 2.4-1 5 0 7.2M4 20l5.6-5.6M11 13h5"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5-4.7-4.6 6.5-.9z"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 14.4c-.3-.2-1.8-.9-2-1s-.5-.2-.7.1-.8 1-1 1.2-.4.2-.7 0a8 8 0 0 1-2.4-1.5 9 9 0 0 1-1.6-2c-.2-.3 0-.5.1-.7l.5-.6.3-.6c.1-.2 0-.4 0-.6l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4A3.6 3.6 0 0 0 5.7 9c0 1.6 1.1 3.1 1.3 3.3s2.3 3.5 5.6 4.9a19 19 0 0 0 1.9.7 4.5 4.5 0 0 0 2 .1c.6 0 1.8-.7 2.1-1.5s.3-1.4.2-1.5zM12 21.4a9.3 9.3 0 0 1-4.8-1.3l-.3-.2-3.6.9 1-3.5-.2-.4A9.4 9.4 0 1 1 12 21.4zM12 1.7a10.4 10.4 0 0 0-9 15.6L1.3 22.3l5.2-1.4A10.4 10.4 0 1 0 12 1.7z"/></symbol>
+  </defs>
+</svg>
+
+<!-- ===================== HEADER ===================== -->
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a href="#top" class="logo" aria-label="MPMOTOS — Inicio">
+      <span class="mark"><svg style="color:var(--accent)"><use href="#i-helmet" fill="currentColor"/></svg></span>
+      <span>MP<b>MOTOS</b></span>
+    </a>
+
+    <nav class="nav" aria-label="Principal">
+      <a href="#cascos">Cascos</a>
+      <a href="#seguridad">Seguridad</a>
+      <a href="#talle">Tu talle</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#faq">Preguntas</a>
+    </nav>
+
+    <a class="btn btn-primary" href="#cascos">Ver cascos <span>y precios</span></a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <span class="pill"><i></i> Stock disponible · Envío hoy si comprás antes de las 16 h</span>
+      <h1>Tu cabeza no tiene<br>repuesto. <em>Tu casco sí.</em></h1>
+      <p class="lead">Cascos certificados <strong style="color:#fff;font-weight:600">DOT y ECE 22.06</strong>, probados en impacto real. Elegí el tuyo en 2 minutos, te lo llevamos en 24–48 h y si el talle no te va, lo cambiamos gratis.</p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#cascos">Ver cascos y precios</a>
+        <a class="btn btn-ghost-light" href="#talle">Calcular mi talle</a>
+      </div>
+      <p class="hero-note">Garantía 12 meses · Cambio gratis por talle · Pagá en cuotas sin interés</p>
+    </div>
+
+    <div class="hero-art">
+      <div class="glow"></div>
+      <svg class="helmet" viewBox="0 0 200 176" aria-label="Casco integral MPMOTOS" role="img">
+        <use href="#i-helmet" fill="#F2F3F4"/>
+        <path d="M100 14c48 0 78 35 78 80v20c0 15-9 26-23 29l-33 7c-11 2-20-2-24-11l-5-11H46c-14 0-24-10-24-24v-10C22 49 52 14 100 14z" fill="none" stroke="#0B0B0C" stroke-opacity=".12" stroke-width="2"/>
+        <!-- Visera -->
+        <path d="M54 76c7-16 24-27 46-27 27 0 51 11 62 25 3 4 1 9-4 10l-88 12c-13 2-22-8-16-20z" fill="#101114"/>
+        <path d="M60 74c6-13 21-22 40-22 24 0 45 9 55 21" fill="none" stroke="#FF4D17" stroke-width="3" stroke-linecap="round"/>
+        <!-- Detalle mentonera -->
+        <path d="M52 112h34" stroke="#0B0B0C" stroke-opacity=".18" stroke-width="4" stroke-linecap="round"/>
+        <path d="M52 122h26" stroke="#0B0B0C" stroke-opacity=".12" stroke-width="4" stroke-linecap="round"/>
+        <!-- Franja de acento -->
+        <path d="M150 34c14 12 22 30 23 50l-13 2c-1-19-9-36-22-46z" fill="#FF4D17"/>
+      </svg>
+      <span class="spec s1"><svg><use href="#i-shield"/></svg> ECE 22.06 homologado</span>
+      <span class="spec s2"><svg><use href="#i-feather"/></svg> Desde 1.290 g</span>
+    </div>
+  </div>
+
+  <!-- Tira de confianza -->
+  <div class="trust">
+    <div class="wrap">
+      <ul>
+        <li><svg><use href="#i-truck"/></svg> Envío 24–48 h a todo el país</li>
+        <li><svg><use href="#i-swap"/></svg> Cambio de talle sin costo</li>
+        <li><svg><use href="#i-shield"/></svg> Garantía oficial 12 meses</li>
+        <li><svg><use href="#i-card"/></svg> Hasta 6 cuotas sin interés</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRODUCTOS ===================== -->
+<section class="section" id="cascos">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow">Los 3 más vendidos</span>
+      <h2>Tres cascos. Cero dudas.</h2>
+      <p class="lead">No te mareamos con 80 modelos. Estos son los que mejor funcionan para ciudad, ruta y uso diario — todos homologados y con garantía.</p>
+    </div>
+
+    <div class="grid-3">
+
+      <!-- Producto 1 -->
+      <article class="card rv">
+        <div class="card-media">
+          <span class="tag">Ciudad</span>
+          <svg viewBox="0 0 200 176" role="img" aria-label="Casco Urban Line">
+            <use href="#i-helmet" fill="#2A2D33"/>
+            <path d="M54 76c7-16 24-27 46-27 27 0 51 11 62 25 3 4 1 9-4 10l-88 12c-13 2-22-8-16-20z" fill="#0B0B0C"/>
+            <path d="M60 74c6-13 21-22 40-22 24 0 45 9 55 21" fill="none" stroke="#8A9099" stroke-width="3" stroke-linecap="round"/>
+            <path d="M52 112h34" stroke="#fff" stroke-opacity=".14" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <span class="use">Uso urbano diario</span>
+          <h3>MP Urban Line</h3>
+          <ul class="feat">
+            <li><svg><use href="#i-check"/></svg> Homologado DOT · 1.290 g</li>
+            <li><svg><use href="#i-check"/></svg> Visor antirrayas con traba rápida</li>
+            <li><svg><use href="#i-check"/></svg> Interior desmontable y lavable</li>
+          </ul>
+          <div class="price">
+            <span class="now">$129</span>
+            <span class="was">$169</span>
+            <span class="off">−24%</span>
+          </div>
+          <p class="installments">6 cuotas sin interés de $21,50</p>
+          <a class="btn btn-primary btn-block" href="#contacto">Lo quiero</a>
+        </div>
+      </article>
+
+      <!-- Producto 2 -->
+      <article class="card rv">
+        <div class="card-media">
+          <span class="tag hot">Más vendido</span>
+          <svg viewBox="0 0 200 176" role="img" aria-label="Casco Road Pro">
+            <use href="#i-helmet" fill="#F2F3F4"/>
+            <path d="M54 76c7-16 24-27 46-27 27 0 51 11 62 25 3 4 1 9-4 10l-88 12c-13 2-22-8-16-20z" fill="#101114"/>
+            <path d="M60 74c6-13 21-22 40-22 24 0 45 9 55 21" fill="none" stroke="#FF4D17" stroke-width="3" stroke-linecap="round"/>
+            <path d="M150 34c14 12 22 30 23 50l-13 2c-1-19-9-36-22-46z" fill="#FF4D17"/>
+            <path d="M52 112h34" stroke="#0B0B0C" stroke-opacity=".18" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <span class="use">Ruta y viajes largos</span>
+          <h3>MP Road Pro</h3>
+          <ul class="feat">
+            <li><svg><use href="#i-check"/></svg> Doble homologación DOT + ECE 22.06</li>
+            <li><svg><use href="#i-check"/></svg> Visor solar interno retráctil</li>
+            <li><svg><use href="#i-check"/></svg> Ventilación de 4 vías anti-empañado</li>
+          </ul>
+          <div class="price">
+            <span class="now">$249</span>
+            <span class="was">$319</span>
+            <span class="off">−22%</span>
+          </div>
+          <p class="installments">6 cuotas sin interés de $41,50</p>
+          <a class="btn btn-primary btn-block" href="#contacto">Lo quiero</a>
+        </div>
+      </article>
+
+      <!-- Producto 3 -->
+      <article class="card rv">
+        <div class="card-media">
+          <span class="tag">Rebatible</span>
+          <svg viewBox="0 0 200 176" role="img" aria-label="Casco Flip Max">
+            <use href="#i-helmet" fill="#1B4B7A"/>
+            <path d="M54 76c7-16 24-27 46-27 27 0 51 11 62 25 3 4 1 9-4 10l-88 12c-13 2-22-8-16-20z" fill="#0B0B0C"/>
+            <path d="M60 74c6-13 21-22 40-22 24 0 45 9 55 21" fill="none" stroke="#5FA8E8" stroke-width="3" stroke-linecap="round"/>
+            <path d="M22 100h68" stroke="#fff" stroke-opacity=".2" stroke-width="3" stroke-dasharray="6 5"/>
+            <path d="M52 118h30" stroke="#fff" stroke-opacity=".14" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <span class="use">Trabajo y delivery</span>
+          <h3>MP Flip Max</h3>
+          <ul class="feat">
+            <li><svg><use href="#i-check"/></svg> Mentonera rebatible con una mano</li>
+            <li><svg><use href="#i-check"/></svg> Compatible con intercomunicador</li>
+            <li><svg><use href="#i-check"/></svg> Cierre micrométrico de acción rápida</li>
+          </ul>
+          <div class="price">
+            <span class="now">$189</span>
+            <span class="was">$239</span>
+            <span class="off">−21%</span>
+          </div>
+          <p class="installments">6 cuotas sin interés de $31,50</p>
+          <a class="btn btn-primary btn-block" href="#contacto">Lo quiero</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== POR QUÉ / SEGURIDAD ===================== -->
+<section class="section why" id="seguridad">
+  <div class="wrap why-in">
+    <div class="why-art rv">
+      <svg viewBox="0 0 200 176" role="img" aria-label="Corte de seguridad del casco">
+        <use href="#i-helmet" fill="#F2F3F4"/>
+        <path d="M100 26c41 0 66 30 66 68v17c0 10-6 18-16 20l-30 6c-8 2-14-1-17-8l-5-11H48c-9 0-16-7-16-16v-8c0-38 27-68 68-68z" fill="none" stroke="#FF4D17" stroke-width="2" stroke-dasharray="7 6"/>
+        <path d="M54 76c7-16 24-27 46-27 27 0 51 11 62 25 3 4 1 9-4 10l-88 12c-13 2-22-8-16-20z" fill="#101114"/>
+        <path d="M150 34c14 12 22 30 23 50l-13 2c-1-19-9-36-22-46z" fill="#FF4D17"/>
+      </svg>
+    </div>
+
+    <div class="rv">
+      <span class="eyebrow">Por qué MPMOTOS</span>
+      <h2>Vendemos protección,<br>no accesorios.</h2>
+      <p class="lead" style="margin-top:16px">Cada casco que sale de acá pasó por certificación real y por nuestras manos. Si no lo usaríamos nosotros, no lo vendemos.</p>
+
+      <div class="why-list">
+        <div class="why-item">
+          <span class="ico"><svg><use href="#i-shield"/></svg></span>
+          <div>
+            <h3>Certificación verificable</h3>
+            <p>DOT FMVSS 218 y ECE 22.06 con etiqueta y número de lote. Podés chequearlo vos mismo antes de pagar.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="ico"><svg><use href="#i-swap"/></svg></span>
+          <div>
+            <h3>El talle correcto o lo cambiamos</h3>
+            <p>Te asesoramos por WhatsApp antes de comprar. Si igual no calza, el cambio es gratis dentro de los 30 días.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="ico"><svg><use href="#i-truck"/></svg></span>
+          <div>
+            <h3>Llega cuando decimos</h3>
+            <p>Despacho el mismo día en compras antes de las 16 h. Seguimiento por WhatsApp hasta que lo tenés puesto.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="ico"><svg><use href="#i-chat"/></svg></span>
+          <div>
+            <h3>Atiende alguien que anda en moto</h3>
+            <p>Nada de bots. Consultá modelo, uso o compatibilidad y te responde una persona en minutos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CÓMO ELEGIR TALLE ===================== -->
+<section class="section" id="talle">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow">Comprar sin equivocarte</span>
+      <h2>Tu talle exacto en 3 pasos</h2>
+      <p class="lead">El casco correcto no se elige de memoria. Con una cinta métrica alcanza.</p>
+    </div>
+
+    <div class="steps rv">
+      <div class="step">
+        <span class="n">PASO 01</span>
+        <h3>Medí tu cabeza</h3>
+        <p>Pasá la cinta 2 cm arriba de las cejas, por la parte más ancha del cráneo. Anotá el número en centímetros.</p>
+      </div>
+      <div class="step">
+        <span class="n">PASO 02</span>
+        <h3>Buscá tu talle</h3>
+        <p>53–54 cm = S · 55–56 = M · 57–58 = L · 59–60 = XL. Si quedás justo entre dos, elegí el mayor.</p>
+      </div>
+      <div class="step">
+        <span class="n">PASO 03</span>
+        <h3>Confirmá con nosotros</h3>
+        <p>Mandanos tu medida y para qué lo vas a usar. Te decimos el modelo y talle exacto antes de que pagues.</p>
+      </div>
+    </div>
+
+    <div class="center rv" style="margin-top:44px">
+      <a class="btn btn-primary" href="#contacto"><svg style="width:17px;height:17px" aria-hidden="true"><use href="#i-wa"/></svg> Consultar mi talle por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OPINIONES ===================== -->
+<section class="section why" id="opiniones">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow">Opiniones reales</span>
+      <h2>4,9 / 5 en 340+ compras</h2>
+    </div>
+
+    <div class="grid-3">
+      <div class="quote rv">
+        <div class="stars" aria-label="5 de 5 estrellas">
+          <svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg>
+        </div>
+        <p>“Dudaba del talle y me asesoraron por WhatsApp en 5 minutos. Llegó al día siguiente y calzó perfecto. El Road Pro no se empaña ni con lluvia.”</p>
+        <div class="who">
+          <span class="avatar">MG</span>
+          <div><b>Martín G.</b><small>Compró MP Road Pro</small></div>
+        </div>
+      </div>
+
+      <div class="quote rv">
+        <div class="stars" aria-label="5 de 5 estrellas">
+          <svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg>
+        </div>
+        <p>“Hago delivery 8 horas por día. El rebatible me cambió la vida: no me lo saco más para hablar. Liviano y bien ventilado.”</p>
+        <div class="who">
+          <span class="avatar">LP</span>
+          <div><b>Lucía P.</b><small>Compró MP Flip Max</small></div>
+        </div>
+      </div>
+
+      <div class="quote rv">
+        <div class="stars" aria-label="5 de 5 estrellas">
+          <svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg>
+        </div>
+        <p>“Pedí un talle M y me quedaba grande. Lo cambiaron sin vueltas y sin cobrarme el envío. Difícil encontrar ese trato hoy.”</p>
+        <div class="who">
+          <span class="avatar">DR</span>
+          <div><b>Diego R.</b><small>Compró MP Urban Line</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="guarantee rv" style="margin-top:32px">
+      <span class="seal"><svg><use href="#i-shield"/></svg></span>
+      <div>
+        <h3>Garantía de talle: 30 días o te lo cambiamos</h3>
+        <p>Probátelo en casa. Si no te queda cómodo, coordinamos el cambio por otro talle o modelo sin costo de envío y sin preguntas raras. Tu casco tiene además 12 meses de garantía por defectos de fábrica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow">Antes de comprar</span>
+      <h2>Preguntas frecuentes</h2>
+    </div>
+
+    <div class="faq rv">
+      <details open>
+        <summary>¿Los cascos están homologados?</summary>
+        <p class="ans">Sí. Todos nuestros modelos cuentan con certificación DOT (FMVSS 218) y los de gama media/alta suman ECE 22.06, la norma europea más exigente vigente. Cada casco llega con su etiqueta de homologación y número de lote visible.</p>
+      </details>
+      <details>
+        <summary>¿Cuánto tarda el envío?</summary>
+        <p class="ans">Despachamos el mismo día si comprás antes de las 16 h. La entrega demora 24 h en el área metropolitana y 48–72 h en el interior. Te pasamos el código de seguimiento por WhatsApp apenas sale.</p>
+      </details>
+      <details>
+        <summary>¿Y si me equivoco de talle?</summary>
+        <p class="ans">Tenés 30 días para cambiarlo sin costo. Solo pedimos que el casco esté sin uso en calle y con su caja y etiquetas. Coordinamos el retiro y te enviamos el talle correcto.</p>
+      </details>
+      <details>
+        <summary>¿Qué formas de pago aceptan?</summary>
+        <p class="ans">Tarjeta de crédito y débito, transferencia bancaria y efectivo al retirar. Con tarjeta podés pagar hasta en 6 cuotas sin interés. Pagando por transferencia tenés un 10% de descuento adicional.</p>
+      </details>
+      <details>
+        <summary>¿Puedo verlo antes de comprar?</summary>
+        <p class="ans">Sí. Podés retirar por nuestro local y probarte los modelos disponibles sin compromiso. Escribinos por WhatsApp y te reservamos el casco que quieras probar.</p>
+      </details>
+      <details>
+        <summary>¿Cada cuánto hay que cambiar el casco?</summary>
+        <p class="ans">Se recomienda reemplazarlo cada 5 años de uso normal, o inmediatamente después de cualquier impacto — aunque no se vea dañado por fuera, el EPS interno se comprime una sola vez y pierde su capacidad de absorción.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA FINAL ===================== -->
+<section class="section final" id="contacto">
+  <div class="wrap center">
+    <h2 class="rv">Elegí tu casco hoy.<br>Andá tranquilo mañana.</h2>
+    <p class="lead rv">Escribinos con tu medida y para qué usás la moto. Te recomendamos el modelo exacto, sin vender de más.</p>
+
+    <div class="final-cta rv">
+      <!-- TODO: reemplazá el número por el de MPMOTOS (formato internacional, sin + ni espacios) -->
+      <a class="btn btn-primary" href="https://wa.me/5491100000000?text=Hola%20MPMOTOS!%20Quiero%20asesoramiento%20para%20elegir%20un%20casco." target="_blank" rel="noopener">
+        <svg style="width:17px;height:17px" aria-hidden="true"><use href="#i-wa"/></svg> Escribir por WhatsApp
+      </a>
+      <a class="btn btn-ghost-light" href="#cascos">Volver a los modelos</a>
+    </div>
+    <p class="final-micro rv">Respondemos de lunes a sábado, 9 a 19 h · Normalmente en menos de 10 minutos</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-in">
+      <div>
+        <a href="#top" class="logo">
+          <span class="mark"><svg><use href="#i-helmet" fill="currentColor"/></svg></span>
+          <span style="color:#fff">MP<b style="color:var(--accent)">MOTOS</b></span>
+        </a>
+        <p style="max-width:34ch">Cascos certificados y asesoramiento real para que andes protegido. Envíos a todo el país.</p>
+      </div>
+
+      <div>
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="#cascos">Cascos</a></li>
+          <li><a href="#talle">Guía de talles</a></li>
+          <li><a href="#seguridad">Certificaciones</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <!-- TODO: completá con los datos reales del negocio -->
+          <li><a href="https://wa.me/5491100000000" target="_blank" rel="noopener">WhatsApp: +54 9 11 0000-0000</a></li>
+          <li><a href="mailto:hola@mpmotos.com">hola@mpmotos.com</a></li>
+          <li>Lun a Sáb · 9 a 19 h</li>
+          <li><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ftr-btm">
+      <span>© <span id="year">2026</span> MPMOTOS. Todos los derechos reservados.</span>
+      <span>Precios en pesos, IVA incluido.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== BARRA FIJA MÓVIL ===================== -->
+<div class="sticky-buy">
+  <div class="txt">
+    <b>Desde $129</b>
+    <small>Envío 24–48 h · Cambio gratis</small>
+  </div>
+  <a class="btn btn-primary btn-sm" href="#cascos">Ver cascos</a>
+</div>
+
+<script>
+  // Año dinámico en el footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Animación de entrada al hacer scroll
+  const reveals = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (!e.isIntersecting) return;
+        setTimeout(() => e.target.classList.add('in'), (i % 3) * 80);
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('in'));
+  }
+
+  // Oculta la barra fija cuando el CTA final está a la vista
+  const finalCta = document.getElementById('contacto');
+  const bar = document.querySelector('.sticky-buy');
+  if ('IntersectionObserver' in window && finalCta && bar) {
+    new IntersectionObserver(([e]) => {
+      bar.style.transform = e.isIntersecting ? 'translateY(120%)' : 'translateY(0)';
+      bar.style.transition = 'transform .3s cubic-bezier(.22,.61,.36,1)';
+    }, { threshold: 0.25 }).observe(finalCta);
+  }
+</script>
+
+</body>
+</html>
